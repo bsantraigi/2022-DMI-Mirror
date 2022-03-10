@@ -1,0 +1,16 @@
+*.pth
+.idea
+**__pycache__**
+**.ipynb_checkpoints**
+wandb/
+data/mutual
+data/dailydialog_pp
+data/e_intents
+data/reddit*
+data/ubuntu
+checkpoints/
+logs/
+/data/PAA/
+.vscode/settings.json
+data/rMax-subset/
+data/dnli/

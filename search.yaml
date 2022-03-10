@@ -1,0 +1,49 @@
+project: infonce-dialog-setup
+entity: bsantraigi
+program: pretrain.py
+method: bayes
+metric:
+  name: mutual_info
+  goal: maximize
+parameters:
+  learning_rate:
+    distribution: uniform
+    min: 0.00005
+    max: 0.02
+  dataset:
+    value: dd
+  batch_size:
+    distribution: int_uniform
+    min: 32
+    max: 128
+  d_model:
+    distribution: categorical
+    values:
+      - 24
+      - 64
+      - 128
+      - 256
+      - 512
+      - 768
+  projection:
+    value:
+      128
+  encoder_heads:
+    distribution: categorical
+    values:
+      - 2
+      - 4
+      - 8
+  encoder_layers:
+    distribution: int_uniform
+    min: 6
+    max: 8
+  tracking:
+    value: 1
+  log_interval:
+    value: 50
+  val_interval:
+    value: 200
+early_terminate:
+  type: hyperband
+  min_iter: 3
